@@ -2,8 +2,11 @@ import { Photo } from "./Photo";
 
 export function PhotoList(props) {
     console.log(props.pics);
-    const photos = props.pics.map((pic) => {
-        return <Photo url={pic} />
+    let bob  = ['bob', 'bill','jill','hill'];
+    console.log(bob);
+    console.log(props.pics[0])
+    const photos = props.pics[0].map((pic) => {
+        return <Photo url={ pic } />
     });
     return(
         <div className="photo-container">
