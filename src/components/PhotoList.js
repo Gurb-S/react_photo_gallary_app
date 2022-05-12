@@ -1,10 +1,16 @@
 import { Photo } from "./Photo";
 
-export function PhotoList() {
+export function PhotoList(props) {
+    console.log(props.pics);
+    const photos = props.pics.map((pic) => {
+        return <Photo url={pic} key={1}/>
+    });
     return(
         <div className="photo-container">
             <h2>Results</h2>
-            <Photo />
+            <ul>
+                { photos }
+            </ul>
         </div>
     )
 }
