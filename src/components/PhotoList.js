@@ -3,7 +3,7 @@ import { Photo } from "./Photo";
 export function PhotoList(props) {
     console.log(props.pics);
     const photos = props.pics.map((pic) => {
-        return <Photo url={pic} key={1}/>
+        return <Photo url={pic} />
     });
     return(
         <div className="photo-container">
