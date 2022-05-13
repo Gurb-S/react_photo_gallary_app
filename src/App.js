@@ -15,7 +15,6 @@ import { NotFound } from './components/NotFound';
 
 function App() {
 
-  const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=cats&per_page=4&page=1&format=json&nojsoncallback=1`;
 
   const [ pics, addpics ] = useState([]);
 
@@ -23,29 +22,33 @@ function App() {
     addpics([pic]);
     //console.log(pic);
   }
-  //let array = [];
-  useEffect(() =>{
-    axios.get(url)
+
+  const getData = async (query = 'cars') => {
+    const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&page=1&format=json&nojsoncallback=1`;
+    const data = await axios.get(url)
     .then(res => {
       // console.log(res.data.photos.photo)
       addPictures(res.data.photos.photo.map(pic =>{
         return `https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`
       }))
-      //addPictures(array);
     })
     .catch(err => console.log(err))
-    
+  }
+
+  useEffect(() =>{
+    getData();
   }, [])
 
 
   return (
     <Router>
       <div className='container'>
-        <SearchForm />
-        <Nav />
+        <SearchForm onSearch={getData}/>
+        <Nav whenClicked={getData}/>
+        {/* <PhotoList /> */}
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/cats' element={<PhotoList pics={pics} />} />
+          <Route path='/:search' element={<PhotoList pics={pics} />} />
           <Route path='*' element={<NotFound />}/>
         </Routes>
       </div>
