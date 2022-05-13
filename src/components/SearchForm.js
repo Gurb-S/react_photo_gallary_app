@@ -1,8 +1,20 @@
-export function SearchForm() {
+import { useRef } from "react"
+
+export function SearchForm(props) {
+
+    const inputRef = useRef()
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        props.onSearch(inputRef.current.value)
+        console.log(inputRef.current.value)
+    }
+
     return (
-            <form className="search-form">
+            <form className="search-form" onSubmit={handleSubmit}>
                 <input type="search"
                     name="search"
+                    ref={inputRef}
                     placeholder="Search"
                     required
                 />
