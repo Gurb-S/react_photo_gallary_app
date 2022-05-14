@@ -1,8 +1,24 @@
-export function Home() {
+import { LoadingCircle } from './LoadingCircle'
+export function Home(props) {
+
+    // const { search } = useParams();
+
+    // const handleUrlSearch = () => {
+        
+    //     <h2>Loading...</h2>
+    // }
+    // const { search } = useParams();
+
+    // useEffect(() =>{
+    //     console.log(search);
+    //     handleUrlSearch();
+    // },[])
+
+
     return(
         <div className="not-found">
-            <h3>Home Page</h3>
-            <p>This is the home page.</p>
+            {props.loading ? <LoadingCircle /> : <h2>Home</h2> }
+            {/* <p>This is the home page.</p> */}
         </div>
     )
 }
