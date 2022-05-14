@@ -1,14 +1,26 @@
+
 import { useRef } from "react"
+import { useNavigate } from "react-router-dom";
+
 
 export function SearchForm(props) {
 
     const inputRef = useRef()
-
+    const navigate = useNavigate();
+    // let { search } = useParams();
+    // console.log(search);
     const handleSubmit = e => {
         e.preventDefault();
         props.onSearch(inputRef.current.value)
         console.log(inputRef.current.value)
+        navigate(`/${inputRef.current.value}`)
+        e.currentTarget.reset();
+        //setSearchParams(inputRef.current.value);
     }
+
+
+    
+    // useMatch
 
     return (
             <form className="search-form" onSubmit={handleSubmit}>

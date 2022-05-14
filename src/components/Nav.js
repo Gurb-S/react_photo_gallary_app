@@ -6,6 +6,7 @@ export function Nav(props) {
         console.log(e.target.textContent)
         props.whenClicked(e.target.textContent)
     }
+
     return(
         <nav className="main-nav">
             <ul>
