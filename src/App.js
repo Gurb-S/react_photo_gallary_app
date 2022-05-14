@@ -17,6 +17,7 @@ function App() {
 
 
   const [ pics, addpics ] = useState([]);
+  const [ isLoading, setIsLoading ] = useState(true);
 
   const addPictures = (pic) => {
     addpics([pic]);
@@ -31,6 +32,7 @@ function App() {
       addPictures(res.data.photos.photo.map(pic =>{
         return `https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`
       }))
+      setIsLoading(false)
     })
     .catch(err => console.log(err))
   }
@@ -47,8 +49,8 @@ function App() {
         <Nav whenClicked={getData}/>
         {/* <PhotoList /> */}
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/:search' element={<PhotoList pics={pics} />} />
+          <Route path='/' element={<Home onLoad={getData} loading={isLoading}/>} />
+          <Route path='/:search' element={<PhotoList pics={pics ? pics : null} />} />
           <Route path='*' element={<NotFound />}/>
         </Routes>
       </div>
