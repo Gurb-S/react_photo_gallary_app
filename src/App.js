@@ -41,7 +41,7 @@ function App() {
     getData();
   }, [])
 
-
+const test = ['sally','bill','tom']
   return (
     <Router>
       <div className='container'>
@@ -49,8 +49,8 @@ function App() {
         <Nav whenClicked={getData}/>
         {/* <PhotoList /> */}
         <Routes>
-          <Route path='/' element={<Home onLoad={getData} loading={isLoading}/>} />
-          <Route path='/:search' element={<PhotoList pics={pics ? pics : null} />} />
+          <Route path='/' element={<Home loading={isLoading}/>} />
+          <Route path='/:search' element={<PhotoList pics={pics[0] ? pics : test} />} />
           <Route path='*' element={<NotFound />}/>
         </Routes>
       </div>
