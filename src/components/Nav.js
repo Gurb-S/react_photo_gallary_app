@@ -1,6 +1,8 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 
 export function Nav(props) {
+
+    const sendHome = useNavigate();
 
     const handleClick = (e) =>{
         console.log(e.target.textContent)

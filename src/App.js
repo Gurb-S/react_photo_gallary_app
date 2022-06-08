@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import axios from 'axios';
 import apiKey from './config';
 
@@ -24,9 +24,10 @@ function App() {
     //console.log(pic);
   }
 
-  const getData = async (query = 'cars') => {
+  const getData = async (query) => {
+    console.log(`THIS IS THE QUERY: ${query}`)
     const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&page=1&format=json&nojsoncallback=1`;
-    const data = await axios.get(url)
+    await axios.get(url)
     .then(res => {
       // console.log(res.data.photos.photo)
       addPictures(res.data.photos.photo.map(pic =>{
@@ -41,7 +42,6 @@ function App() {
     getData();
   }, [])
 
-const test = ['sally','bill','tom']
   return (
     <Router>
       <div className='container'>
@@ -50,7 +50,7 @@ const test = ['sally','bill','tom']
         {/* <PhotoList /> */}
         <Routes>
           <Route path='/' element={<Home loading={isLoading}/>} />
-          <Route path='/:search' element={<PhotoList pics={pics[0] ? pics : test} />} />
+          <Route path='/:search' element={<PhotoList pics={pics} onSearch={getData}/>} />
           <Route path='*' element={<NotFound />}/>
         </Routes>
       </div>

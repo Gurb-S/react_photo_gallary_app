@@ -7,14 +7,26 @@ export function SearchForm(props) {
 
     const inputRef = useRef()
     const navigate = useNavigate();
+    // const sendHome = useNavigate();
     // let { search } = useParams();
     // console.log(search);
     const handleSubmit = e => {
         e.preventDefault();
-        props.onSearch(inputRef.current.value)
+        
         console.log(inputRef.current.value)
+        props.onSearch(inputRef.current.value)
         navigate(`/${inputRef.current.value}`)
         e.currentTarget.reset();
+        
+        //console.log(`${props.loading} THIS SHITTTT LOADINNNG`)
+        // if(props.loading){
+        //     sendHome('/');
+        // }
+        // else{
+        //     props.onSearch(inputRef.current.value)
+        //     navigate(`/${inputRef.current.value}`)
+        //     e.currentTarget.reset();
+        // }
         //setSearchParams(inputRef.current.value);
     }
 
