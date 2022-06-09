@@ -13,6 +13,7 @@ import { NotFound } from './components/NotFound';
 
 
 
+
 function App() {
 
 
@@ -50,7 +51,7 @@ function App() {
         {/* <PhotoList /> */}
         <Routes>
           <Route path='/' element={<Home loading={isLoading}/>} />
-          <Route path='/:search' element={<PhotoList pics={pics} onSearch={getData}/>} />
+          <Route path='/:search' element={<PhotoList pics={pics} onSearch={getData} loading={isLoading}/>} />
           <Route path='*' element={<NotFound />}/>
         </Routes>
       </div>
