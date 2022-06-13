@@ -2,10 +2,10 @@ import { NavLink, useNavigate } from "react-router-dom"
 
 export function Nav(props) {
 
-    const sendHome = useNavigate();
-
+    /**
+     * when called it passes in the text content of the target to the whenClicked prop 
+     */
     const handleClick = (e) =>{
-        console.log(e.target.textContent)
         props.whenClicked(e.target.textContent)
     }
 
