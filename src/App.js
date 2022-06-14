@@ -25,8 +25,8 @@ function App() {
   const addPictures = (pic) => {
     addpics([pic]);
   }
-
-  const getData = async (query) => {
+  //sets the query to random text in case there is no imgs found, allowing for not found screen to be shown
+  const getData = async (query = "jhdjfdjfdkjf") => {
     //resets the isLoading to true
     setIsLoading(true)
     const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&page=1&format=json&nojsoncallback=1`;
