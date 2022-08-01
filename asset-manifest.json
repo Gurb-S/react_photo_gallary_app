@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/react_photo_gallary_app/static/css/main.955ba9e7.css",
+    "main.js": "/react_photo_gallary_app/static/js/main.094135e7.js",
+    "static/js/787.fc33f153.chunk.js": "/react_photo_gallary_app/static/js/787.fc33f153.chunk.js",
+    "static/media/sad_face.png": "/react_photo_gallary_app/static/media/sad_face.fab5f467ded4d5b0a363.png",
+    "index.html": "/react_photo_gallary_app/index.html",
+    "main.955ba9e7.css.map": "/react_photo_gallary_app/static/css/main.955ba9e7.css.map",
+    "main.094135e7.js.map": "/react_photo_gallary_app/static/js/main.094135e7.js.map",
+    "787.fc33f153.chunk.js.map": "/react_photo_gallary_app/static/js/787.fc33f153.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.955ba9e7.css",
+    "static/js/main.094135e7.js"
+  ]
+}
