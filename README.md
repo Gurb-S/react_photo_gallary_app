@@ -4,7 +4,7 @@ A photo gallery app that retrieves data from the Flickr api and displays it in a
 
 ## Installation
 
-In the project directory, run:
+### In the project directory, run:
 
 Step 1: `npm install`
 
